@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
           <footer className="bg-gray-900">
             <div className="container mx-auto py-12 flex flex-col md:flex-row justify-between md:space-y-0 space-y-8">
               <Contact color="text-white" address={true} />
-              <span className="text-sm text-gray-400">©2022 EldarCars</span>
+              <span className="text-sm text-gray-400">©2022 ELDARCARS</span>
             </div>
           </footer>
 
