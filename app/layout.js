@@ -10,14 +10,16 @@ import Menu from "./components/Menu";
 
 export default function RootLayout({ children }) {
   return (
+    // className="w-screen h-screen overflow-hidden"
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        {/* <link rel="icon" type="image/svg+xml" href="/vite.svg" /> */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Alle auto's</title>
       </head>
 
+      {/* className="relative overflow-x-hidden" */}
       <body>
 
         <Provider>
@@ -41,7 +43,7 @@ export default function RootLayout({ children }) {
           <footer className="bg-gray-900">
             <div className="container mx-auto py-12 flex flex-col md:flex-row justify-between md:space-y-0 space-y-8">
               <Contact color="text-white" address={true} />
-              <span className="text-sm text-gray-400">©2022 ELDARCARS</span>
+              <span className="text-sm text-gray-400">©2025 ELDARCARS</span>
             </div>
           </footer>
 
