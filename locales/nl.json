@@ -17,7 +17,9 @@
   "buttons": {
     "next": "Volgende",
     "previous": "Vorige",
-    "submit": "Verzenden"
+    "submit": "Verzenden",
+    "more": "Meer",
+    "less": "Minder"
   },
   "navigation": {
     "cars": "Auto's",
@@ -185,6 +187,7 @@
     "fuel": "Brandstof",
     "power": "Vermogen",
     "unit": "Eenheid",
+    "body": "Carrosserie",
     "doors": "Deuren",
     "seats": "Zetels",
     "interior": "Interieur",

@@ -17,7 +17,9 @@
   "buttons": {
     "next": "Next",
     "previous": "Previous",
-    "submit": "Submit"
+    "submit": "Submit",
+    "more": "More",
+    "less": "Less"
   },
   "navigation": {
     "cars": "Cars",
@@ -185,6 +187,7 @@
     "fuel": "Fuel",
     "power": "Power",
     "unit": "Unit",
+    "body": "Car Body Style",
     "doors": "Doors",
     "seats": "Seats",
     "interior": "Interior",

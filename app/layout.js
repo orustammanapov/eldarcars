@@ -7,6 +7,7 @@ import Burger from "./components/Burger";
 import { Provider } from "./ContextProvider";
 import Contact from "./components/Contact";
 import Menu from "./components/Menu";
+import './lib/i18n';
 
 export default function RootLayout({ children }) {
   return (
