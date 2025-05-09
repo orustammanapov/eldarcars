@@ -4,7 +4,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-export default function More({ title, excerpt, details }) {
+export default function More({ title, open, close, excerpt, details }) {
     const [expanded, setExpanded] = useState(false);
     return <>
     <div>
@@ -14,12 +14,13 @@ export default function More({ title, excerpt, details }) {
         ${expanded ? 'max-h-[500px] text-gray-300' : 'max-h-48 text-gray-400'}
       `}>
         {excerpt}
-        {expanded && <span>{details}</span>}
+        {expanded && details && <span>{details}</span>}
       </div>
+
       <button 
         onClick={() => setExpanded(!expanded)}
         className="mt-2 text-white text-sm font-bold focus:outline-none">
-        <span className="mr-1">{expanded ? 'Minder' : 'Meer'}</span>
+        <span className="mr-1">{expanded ? close : open}</span>
         <FontAwesomeIcon 
           icon={faChevronDown} 
           className={`transition-transform duration-300 ${expanded && 'rotate-180'}`} 

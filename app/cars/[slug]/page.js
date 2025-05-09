@@ -1,8 +1,5 @@
-import Slider from "../../components/Slider";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import Link from "next/link";
-import More from "../../components/More";
+import Car from "../../components/Car";
+import PocketBase from 'pocketbase';
 
 // interface Details {
 //   range?: number  // 54564545
@@ -202,75 +199,22 @@ const cars = {
  */
 
 export async function generateStaticParams() {
-  /**
-   *  const cars = await fetch("https://your-api.com/cars");
-   */
-  return Object.keys(cars).map((slug) => ({
-    slug,
-  }))
+  const pb = new PocketBase('http://localhost:8090');
+  const records = await pb.collection('cars').getFullList({
+    fields: 'slug', // Only fetch the fields you need
+  });
+
+  return records.map((car) => ({
+    slug: car.slug,
+  }));
 }
 
-export default function Page({ params }) {
-  /**
-   * const car = await fetch(`https://your-api.com/cars/${params.slug}`);
-   */
-  const car = cars[params.slug];
+export default async function Page({ params }) {
 
-  return (
-    <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-8 space-y-8 lg:space-y-0">
+  const pb = new PocketBase('http://localhost:8090');
+  const carData = await pb.collection('cars').getFirstListItem(`slug="${params.slug}"`, {
+    expand: "transmissionType,fuelType,carBodyStyle",
+  });
 
-      <Slider images={car.images} />
-
-      {/* Details*/}
-      <article className="basis-3/5">
-        <h1 className="text-4xl font-bold mb-8 sm:-mt-2">Best Car Ever</h1>
-        <div className="flex flex flex-col-reverse lg:flex-col">
-          <section>
-            <div className="mb-8">{/* Features */}
-              <More 
-                title="Specificaties"
-                excerpt={
-                  <ul className="grid xl:grid-cols-3 grid-cols-2 gap-4 mb-4 text-gray-400">
-                    {car.specs.slice(0, 6).map((feature) => (
-                      <li key={feature.name} className="flex flex-col basis-1/2">
-                        <span className="font-bold">{feature.name}</span>
-                        <span>{feature.value}</span>
-                      </li>
-                    ))}
-                  </ul>
-                }
-                details={
-                  <ul className="grid xl:grid-cols-3 grid-cols-2 gap-4 mb-4 text-gray-400">
-                    {car.specs.slice(6).map((feature) => (
-                      <li key={feature.name} className="flex flex-col basis-1/2">
-                        <span className="font-bold">{feature.name}</span>
-                        <span>{feature.value}</span>
-                      </li>
-                    ))}
-                  </ul>
-                }
-              />
-            </div>
-            <div className="mb-8">{/* Description */}
-              <More 
-                title="Beschrijving"
-                excerpt={ car.description.slice(0, 120) }
-                details={ car.description.slice(120) }
-              />
-            </div>
-          </section>
-          {/* Call to action */}
-          <div className="mb-8 flex flex-row justify-between">
-            <div className="flex flex-col">
-              <div className="text-xl font-bold">{currency.format(car.price.amount)}</div>
-              <small>BTW {percent.format(car.vat)} (incl.)</small>
-            </div>
-            <Link href="mailto:eldarcars@gmail.com" className={`text-xl p-3 rounded-md bg-red-900 hover:bg-red-800`}>
-              <FontAwesomeIcon icon={faPaperPlane} className="w-4 mr-2" aria-hidden /> Geïnteresseerd
-            </Link>
-          </div>
-        </div>
-      </article>
-    </div>
-  );
+  return <Car data={carData} />;
 }
