@@ -46,8 +46,7 @@ export default async function Home() {
 
   // PocketBase returns { items: [...] }
   const cars = data.items.map(car => ({
-    brand: car.brand,
-    model: car.model,
+    title: car.title,
     price: currency.format(car.priceAmount),
     image: car.images?.[0] ? `http://localhost:8090/api/files/cars/${car.id}/${car.images[0]}` : '/placeholder.jpg',
     slug: car.slug,
@@ -62,10 +61,10 @@ export default async function Home() {
           {/* hover:text-red-500 */}
           <Link href={`/cars/${car.slug}`} className="flex flex-col font-medium text-gray-300 hover:text-gray-200">
             <figure>
-              <img src={car.image} alt={`${car.brand} ${car.model}`} />
+              <img src={car.image} alt={car.title} />
               <figcaption className="flex justify-between p-4">
                 <span className="text-left">{car.price}</span>
-                <span className="text-right">{car.model}</span>
+                <span className="text-right">{car.title}</span>
               </figcaption>
             </figure>
           </Link>
