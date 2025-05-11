@@ -1,5 +1,5 @@
 import Car from "../../components/Car";
-import PocketBase from 'pocketbase';
+import { pb } from "../../pocketbase";
 
 // interface Details {
 //   range?: number  // 54564545
@@ -199,7 +199,6 @@ const cars = {
  */
 
 export async function generateStaticParams() {
-  const pb = new PocketBase('http://localhost:8090');
   const records = await pb.collection('cars').getFullList({
     fields: 'slug', // Only fetch the fields you need
   });
@@ -211,7 +210,6 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }) {
 
-  const pb = new PocketBase('http://localhost:8090');
   const carData = await pb.collection('cars').getFirstListItem(`slug="${params.slug}"`, {
     expand: "transmissionType,fuelType,carBodyStyle",
   });

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PocketBase from 'pocketbase';
+import { pb } from "./pocketbase";
 
 const currency = new Intl.NumberFormat('nl-NL', {
   style: 'currency',
@@ -38,8 +38,6 @@ const currency = new Intl.NumberFormat('nl-NL', {
 // ];
 
 export default async function Home() {
-
-  const pb = new PocketBase('http://localhost:8090');
 
   const carsData = await pb.collection('cars').getFullList({
     sort: '-created', // Optional: sort by creation time or any field
