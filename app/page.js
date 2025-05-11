@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PocketBase from 'pocketbase';
 
 const currency = new Intl.NumberFormat('nl-NL', {
   style: 'currency',
@@ -38,14 +39,13 @@ const currency = new Intl.NumberFormat('nl-NL', {
 
 export default async function Home() {
 
-    const res = await fetch("http://localhost:8090/api/collections/cars/records", {
-    cache: "no-store", // or use "force-cache" for ISR
+  const pb = new PocketBase('http://localhost:8090');
+
+  const carsData = await pb.collection('cars').getFullList({
+    sort: '-created', // Optional: sort by creation time or any field
   });
 
-  const data = await res.json();
-
-  // PocketBase returns { items: [...] }
-  const cars = data.items.map(car => ({
+  const cars = carsData.map(car => ({
     title: car.title,
     price: currency.format(car.priceAmount),
     image: car.images?.[0] ? `http://localhost:8090/api/files/cars/${car.id}/${car.images[0]}` : '/placeholder.jpg',
