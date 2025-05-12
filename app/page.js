@@ -73,6 +73,11 @@ export default async function Home() {
             </div>
           )}
 
+          {/* Overlay */}
+          {car.status !== "available" && (
+            <div className="absolute inset-0 bg-black bg-opacity-60 z-8" />
+          )}
+
           <Link href={`/cars/${car.slug}`} className="flex flex-col font-medium text-gray-300 hover:text-gray-200">
             <figure>
               <img src={car.image} alt={car.title} className="w-full object-cover" />
