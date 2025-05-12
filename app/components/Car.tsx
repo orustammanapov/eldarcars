@@ -16,6 +16,10 @@ const percent = new Intl.NumberFormat('nl-NL', {
   style: 'percent',
 });
 
+const date = new Intl.DateTimeFormat("nl-NL", {
+  dateStyle: "medium",
+});
+
 export default async function Car({ data: carData }) {
 
   const { t } = useTranslation("translation", {
@@ -35,7 +39,7 @@ export default async function Car({ data: carData }) {
     ),
     description: carData.description,
     specs: [
-      { name: t("labels.registration"), value: new Date(carData.registrationDate).toLocaleDateString('nl-NL') },
+      { name: t("labels.registration"), value: date.format(new Date(carData.registrationDate)) },
       { name: t("labels.mileage"), value: `${carData.mileageValue} ${carData.mileageMetric}` },
       { name: t("labels.transmission"), value: t(`transmissionTypes.${carData.expand?.transmissionType.value}`) },
       { name: t("labels.fuel"), value: t(`fuelTypes.${carData.expand?.fuelType.value}`) },
