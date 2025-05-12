@@ -39,12 +39,12 @@ export default async function Car({ data: carData }) {
     ),
     description: carData.description,
     specs: [
-      { name: t("labels.registration"), value: date.format(new Date(carData.registrationDate)) },
-      { name: t("labels.mileage"), value: `${carData.mileageValue} ${carData.mileageMetric}` },
-      { name: t("labels.transmission"), value: t(`transmissionTypes.${carData.expand?.transmissionType.value}`) },
-      { name: t("labels.fuel"), value: t(`fuelTypes.${carData.expand?.fuelType.value}`) },
-      { name: t("labels.power"), value: `${carData.powerValue} ${carData.powerUnit}` },
-      { name: t("labels.body"), value: t(`carBodyStyles.${carData.expand?.carBodyStyle.value}`) },
+      { label: t("labels.registration"), value: date.format(new Date(carData.registrationDate)) },
+      { label: t("labels.mileage"), value: `${carData.mileageValue} ${carData.mileageMetric}` },
+      { label: t("labels.transmission"), value: t(`transmissionTypes.${carData.expand?.transmissionType.value}`) },
+      { label: t("labels.fuel"), value: t(`fuelTypes.${carData.expand?.fuelType.value}`) },
+      { label: t("labels.power"), value: `${carData.powerValue} ${carData.powerUnit}` },
+      { label: t("labels.body"), value: t(`carBodyStyles.${carData.expand?.carBodyStyle.value}`) },
     ],
     status: carData.status,
   };
@@ -62,8 +62,8 @@ export default async function Car({ data: carData }) {
             <div className="mb-8">{/* Features */}
               <ul className="grid xl:grid-cols-3 grid-cols-2 gap-4 mb-4 text-gray-400">
                 {car.specs.slice(0, 6).map((feature) => (
-                  <li key={feature.name} className="flex flex-col basis-1/2">
-                    <span className="font-bold">{feature.name}</span>
+                  <li key={feature.label} className="flex flex-col basis-1/2">
+                    <span className="font-bold">{feature.label}</span>
                     <span>{feature.value}</span>
                   </li>
                 ))}
