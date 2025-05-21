@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 export default function Slider({ images }) {
-
 	// State for tracking the active image index
 	const [active, setActive] = useState(0);
 
