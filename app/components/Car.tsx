@@ -35,7 +35,7 @@ export default async function Car({ data: carData }) {
 		vat: 0.21, // hardcoded or fetch from elsewhere
 		images: carData.images?.map(
 			(fileName) =>
-				`http://localhost:8090/api/files/cars/${carData.id}/${fileName}`,
+				`${process.env.NEXT_PUBLIC_API_URL}/api/files/cars/${carData.id}/${fileName}`,
 		),
 		description: carData.description,
 		specs: [

@@ -21,7 +21,7 @@ export default async function Home() {
 	const cars = carsData.map((car) => ({
 		title: car.title,
 		price: currency.format(car.priceAmount),
-		image: `http://localhost:8090/api/files/cars/${car.id}/${car.images[0]}`,
+		image: `${process.env.NEXT_PUBLIC_API_URL}/api/files/cars/${car.id}/${car.images[0]}`,
 		slug: car.slug,
 		status: car.expand.status.value,
 	}));

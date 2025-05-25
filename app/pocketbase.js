@@ -1,3 +1,3 @@
 import PocketBase from "pocketbase";
 
-export const pb = new PocketBase("http://localhost:8090");
+export const pb = new PocketBase(process.env.NEXT_PUBLIC_API_URL);
