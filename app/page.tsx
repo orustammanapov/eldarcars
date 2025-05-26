@@ -7,7 +7,7 @@ const currency = new Intl.NumberFormat("nl-NL", {
 });
 
 export default async function Home() {
-	const carsData = await pb.collection("cars").getFullList({
+	const data = await pb.collection("cars").getFullList({
 		sort: "-created", // Optional: sort by creation time or any field
 		expand: "status",
 	});
@@ -18,50 +18,46 @@ export default async function Home() {
 		sold: "bg-red-600",
 	};
 
-	const cars = carsData.map((car) => ({
-		title: car.title,
-		price: currency.format(car.priceAmount),
-		image: `${process.env.NEXT_PUBLIC_API_URL}/api/files/cars/${car.id}/${car.images[0]}`,
-		slug: car.slug,
-		status: car.expand.status.value,
+	const cars = data.map((item) => ({
+		title: item.title,
+		price: currency.format(item.priceAmount),
+		image: `${process.env.NEXT_PUBLIC_API_URL}/api/files/cars/${item.id}/${item.images[0]}`,
+		slug: item.slug,
+		status: item.expand.status.value,
 	}));
 
 	return (
 		<section className="grid xl:grid-cols-3 md:grid-cols-2 gap-4">
 			{/* https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key */}
-			{cars.map((car) => (
+			{cars.map(({ image, title, price, slug, status }) => (
 				<article
-					key={car.slug}
+					key={slug}
 					className="relative bg-gray-900 rounded-md overflow-hidden"
 				>
 					{/* Status Ribbon */}
-					{car.status !== "available" && (
+					{status !== "available" && (
 						<div
 							className={`absolute top-8 -right-12 w-48 transform rotate-45 text-white text-center py-1 shadow-lg z-10
-              ${banner[car.status]}`}
+              ${banner[status]}`}
 						>
-							{car.status.toUpperCase()}
+							{status.toUpperCase()}
 						</div>
 					)}
 
 					{/* Overlay */}
-					{car.status !== "available" && (
+					{status !== "available" && (
 						<div className="absolute inset-0 bg-black bg-opacity-60 z-8" />
 					)}
 
 					<Link
-						href={`/cars/${car.slug}`}
+						href={`/cars/${slug}`}
 						className="flex flex-col font-medium text-gray-300 hover:text-gray-200"
 					>
 						<figure>
-							<img
-								src={car.image}
-								alt={car.title}
-								className="w-full object-cover"
-							/>
+							<img src={image} alt={title} className="w-full object-cover" />
 							<figcaption className="flex justify-between p-4">
-								<span className="text-left">{car.price}</span>
-								<span className="text-right">{car.title}</span>
+								<span className="text-left">{price}</span>
+								<span className="text-right">{title}</span>
 							</figcaption>
 						</figure>
 					</Link>
