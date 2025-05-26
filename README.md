@@ -1,5 +1,36 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Fetching data in CSR app
+```js
+
+const [data, setData] = useState(null);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+
+useEffect(() => {
+  async function fetchCar() {
+    try {
+      const result = await pb
+        .collection("cars")
+        .getFirstListItem(`slug="${slug}"`, {
+          expand: "transmissionType,fuelType,carBodyStyle",
+        });
+      setData(result);
+    } catch (err) {
+      console.error(err);
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+  fetchCar();
+}, [slug]);
+
+if (loading) return <p>Loading...</p>;
+if (error || !data) return <p>Error loading car.</p>;
+```
+
 ## Getting Started
 
 First, run the development server:
