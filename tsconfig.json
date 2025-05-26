@@ -1,34 +1,32 @@
 {
-  "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "noEmit": true,
-    "incremental": true,
-    "module": "esnext",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
-  },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": false,
+		"noEmit": true,
+		"incremental": true,
+		"module": "esnext",
+		"esModuleInterop": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"target": "ES2017"
+	},
+	"include": [
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"build/types/**/*.ts",
+		"next-env.d.ts",
+		"out/types/**/*.ts",
+		".next/types/app/wat-betreft/page.ts"
+	],
+	"exclude": ["node_modules"]
 }
