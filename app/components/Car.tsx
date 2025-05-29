@@ -124,9 +124,7 @@ export default async function Car({ data: carData }) {
 								title={t("labels.description")}
 								open={t("buttons.more")}
 								close={t("buttons.less")}
-								excerpt={
-									car.description.split(" ").slice(0, 30).join(" ") + " "
-								}
+								excerpt={`${car.description.split(" ").slice(0, 30).join(" ")} `}
 								details={car.description.split(" ").slice(30).join(" ")}
 							/>
 						</div>
@@ -141,7 +139,7 @@ export default async function Car({ data: carData }) {
 						</div>
 						<Link
 							href="mailto:eldarcars@gmail.com"
-							className={`text-xl p-3 rounded-md bg-red-900 hover:bg-red-800`}
+							className="text-xl p-3 rounded-md bg-red-900 hover:bg-red-800"
 						>
 							<FontAwesomeIcon
 								icon={faPaperPlane}
