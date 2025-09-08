@@ -17,36 +17,18 @@ export default function About() {
 
 			<div className="flex flex-col-reverse md:flex-row-reverse md:items-start mb-12 mt-8">
 				<section className="w-full md:basis-1/2 lg:basis-2/3">
-					<h1 className="text-4xl font-bold mb-4">Wat betreft</h1>
+					<h1 className="text-4xl font-bold mb-4">Over ons</h1>
 					<p className="mb-4">
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur
-						tincidunt fermentum urna. Integer quam. Nulla facilisi. Curabitur
-						pulvinar, erat non consectetuer varius, arcu turpis vulputate erat,
-						sit amet malesuada odio orci ac lacus. Donec sed neque. Fusce sapien
-						mi, euismod id, elementum et, luctus vel, nibh. Aenean accumsan
-						auctor velit. Proin quis dolor. Cras eleifend justo in magna. In
-						metus turpis, placerat sit amet, molestie ac, adipiscing ut, diam.
-						Sed dignissim, dui id congue venenatis, risus lectus hendrerit
-						mauris, iaculis rutrum ipsum nisl eu sem. Nunc sem. In elementum
-						aliquet augue. Phasellus tempor, libero id mollis scelerisque, nisl
-						ipsum pellentesque tortor, gravida ornare pede dui ut sapien. Nullam
-						rutrum porttitor nulla.
+						Bij ELDARCARS vinden we dat het kiezen van de juiste wagen een eenvoudige en geruststellende ervaring moet zijn. Vanuit 8792 Waregem, Gentseweg 136 in België zetten wij zorg en toewijding in bij alles wat we doen - of het nu gaat om het klaarmaken van voertuigen of het ondersteunen van onze klanten na hun aankoop.
 					</p>
-					<p>
-						Morbi id mauris in risus venenatis aliquet. Praesent aliquet dictum
-						est. Quisque dapibus hendrerit libero. Vestibulum ante ipsum primis
-						in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce
-						volutpat, magna vel dignissim suscipit, pede elit volutpat nibh, id
-						blandit dui sapien eu sem. Curabitur ac leo. Donec cursus pharetra
-						dolor. Morbi a purus. Suspendisse rhoncus, arcu ut congue pretium,
-						turpis risus vestibulum diam, nec tempus nibh augue a purus. Sed
-						eget mauris et purus porttitor fringilla. Morbi bibendum. Quisque
-						varius risus eget dui. Pellentesque cursus. Duis quis metus id leo
-						semper tempor. Donec sit amet urna. Aliquam ac diam sed odio
-						ultricies condimentum. Donec at purus sed nulla tincidunt lacinia.
-						Sed sagittis sem non odio. Proin ultrices tellus nec orci. Mauris
-						malesuada, nisl at dapibus volutpat, elit odio aliquam eros, sed
-						convallis enim lacus sed diam.
+					<p className="mb-4">
+						Elke wagen die we aanbieden wordt zorgvuldig gecontroleerd, omdat kwaliteit en betrouwbaarheid voor ons centraal staan. We nemen de tijd om ervoor te zorgen dat de details juist zitten en dat onze klanten vertrouwen hebben in hun keuze.
+					</p>
+					<p className="mb-4">
+						We hechten veel belang aan duidelijke en eerlijke communicatie, en we staan altijd klaar om contact op te nemen om uw noden te bespreken, uw vragen te beantwoorden of te helpen waar we kunnen - zolang het met wagens te maken heeft.
+					</p>
+					<p className="mb-4">
+						Bij ELDARCARS focussen we op duurzame kwaliteit en betrouwbare service - fundamenten die al ons werk sturen. We geloven ook in het opbouwen van langdurige relaties en weten dat klanttevredenheid de beste weg is om dat te bereiken.
 					</p>
 				</section>
 				<aside className="w-full md:basis-1/2 lg:basis-1/3 bg-gray-900 rounded-md p-8 mb-8 mr-8">
@@ -68,7 +50,7 @@ export default function About() {
 								className="w-4"
 								aria-hidden
 							/>
-							<span>8850 ARDOOIE, OOSTLAAN 23</span>
+							<span>8792 Waregem, Gentseweg 136</span>
 						</li>
 					</ul>
 				</aside>
