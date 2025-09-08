@@ -43,13 +43,13 @@ export default function Menu() {
 						<a
 							target="_blank"
 							rel="noopener noreferrer"
-							href="#"
+							href="https://www.facebook.com/p/EldarCars-100066721603221/"
 							aria-label="Facebook"
 						>
 							<FontAwesomeIcon icon={faFacebook} aria-hidden />
 						</a>
 					</li>
-					<li>
+					{/* <li>
 						<a
 							target="_blank"
 							rel="noopener noreferrer"
@@ -68,7 +68,7 @@ export default function Menu() {
 						>
 							<FontAwesomeIcon icon={faYoutube} aria-hidden />
 						</a>
-					</li>
+					</li> */}
 					<li>
 						<a
 							target="_blank"
@@ -79,7 +79,7 @@ export default function Menu() {
 							<FontAwesomeIcon icon={faInstagram} aria-hidden />
 						</a>
 					</li>
-					<li>
+					{/* <li>
 						<a
 							target="_blank"
 							rel="noopener noreferrer"
@@ -88,7 +88,7 @@ export default function Menu() {
 						>
 							<FontAwesomeIcon icon={faWhatsapp} aria-hidden />
 						</a>
-					</li>
+					</li> */}
 				</ul>
 			</div>
 		</nav>
